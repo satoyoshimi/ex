@@ -35,13 +35,14 @@ import java.util.Map;
 
 public class ApiDemos extends ListActivity {
 
+	/**/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         Intent intent = getIntent();
         String path = intent.getStringExtra("com.example.android.apis.Path");
-        
+
         if (path == null) {
             path = "";
         }
@@ -65,15 +66,15 @@ public class ApiDemos extends ListActivity {
             return myData;
 
         String[] prefixPath;
-        
+
         if (prefix.equals("")) {
             prefixPath = null;
         } else {
             prefixPath = prefix.split("/");
         }
-        
+
         int len = list.size();
-        
+
         Map<String, Boolean> entries = new HashMap<String, Boolean>();
 
         for (int i = 0; i < len; i++) {
@@ -82,9 +83,9 @@ public class ApiDemos extends ListActivity {
             String label = labelSeq != null
                     ? labelSeq.toString()
                     : info.activityInfo.name;
-            
+
             if (prefix.length() == 0 || label.startsWith(prefix)) {
-                
+
                 String[] labelPath = label.split("/");
 
                 String nextLabel = prefixPath == null ? labelPath[0] : labelPath[prefixPath.length];
@@ -103,7 +104,7 @@ public class ApiDemos extends ListActivity {
         }
 
         Collections.sort(myData, sDisplayNameComparator);
-        
+
         return myData;
     }
 
@@ -120,7 +121,7 @@ public class ApiDemos extends ListActivity {
         result.setClassName(pkg, componentName);
         return result;
     }
-    
+
     protected Intent browseIntent(String path) {
         Intent result = new Intent();
         result.setClass(this, ApiDemos.class);
