@@ -35,7 +35,6 @@ import java.util.Map;
 
 public class ApiDemos extends ListActivity {
 
-	/*git test*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,5 +142,4 @@ public class ApiDemos extends ListActivity {
         Intent intent = (Intent) map.get("intent");
         startActivity(intent);
     }
-
 }
